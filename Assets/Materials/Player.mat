@@ -59,6 +59,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_4f7376642df04ee58e97904501cf36a1_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 5b7320eb4093feb4eb06b0bf9416ac47, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_bcf93f038c584255aead5e1ac1ed2dbf_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 1f6625015f1d7b944b5edf3573b61fc6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_cecf171799c1410cbbd3fc9599e50351_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 3e7ad29fbc0a04a45ab0e9ebb7d2fc0d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -84,7 +92,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 0
-    - _dissolve: 60.4
+    - _dissolve: 60
     - _dissolveAmount: 0
     - _dissolveWidth: 0.05
     m_Colors:

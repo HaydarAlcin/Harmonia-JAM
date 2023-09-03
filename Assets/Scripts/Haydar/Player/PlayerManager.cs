@@ -38,11 +38,6 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-
-
-
-
-
     public void TransparanPlayer()
     {
         targetMaterial.DOFloat(1f, "_dissolveAmount", 1f)

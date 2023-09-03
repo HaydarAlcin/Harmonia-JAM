@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
 
-    public Animator animator;
+    public Animator animator, swordAnimator;
     public bool teleportStart;
+    bool justOneRotate;
 
     private void Start()
     {
@@ -41,13 +43,19 @@ public class PlayerController : MonoBehaviour
         if (teleportStart==false)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * playerSpeed, rb.velocity.y);
-            if (rb.velocity.x > 0)
+
+            if (rb.velocity.x !=0)
             {
                 animator.SetBool("Idle", false);
+                Rotation();
+
+
             }
+
             else if (rb.velocity.x == 0)
             {
                 animator.SetBool("Idle", true);
+                
             }
         }
 
@@ -69,6 +77,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    ///    SEQUENCE BAKMALISIN ////
+    //public bool control;
+    //Sequence Leftsequence;
+    //Sequence Rightsequence;
+    //public void LeftRotation()
+    //{
+    //    DOTween.Kill(Leftsequence);
+    //    Leftsequence = DOTween.Sequence();
+    //    if(rb.velocity.x <= 0f && !control)
+    //    {
+    //        control = true;
+    //        Leftsequence.Append(transform.DORotate(new Vector3(0, 180, 0), 0.3f));
+
+    //    }
+        
+    //}
+
+    public void Rotation()
+    {
+        
+        if (rb.velocity.x<0 && justOneRotate==false)
+        {
+            justOneRotate = true; 
+            transform.DORotate(new Vector3(0, 180, 0), 0.3f);
+            
+        }
+
+        else if (rb.velocity.x>=0&&justOneRotate==true)
+        {
+
+            justOneRotate = false;
+            transform.DORotate(new Vector3(0, 0, 0), 0.3f);
+            
+        }
+    }
+
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -86,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Force"))
         {
             rb.AddForce(Vector3.up * upForce, ForceMode.Force);
+            swordAnimator.SetTrigger("Force");
         }
 
     }
